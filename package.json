@@ -1,0 +1,17 @@
+{
+  "name": "josiahbot",
+  "version": "1.0.0",
+  "description": "JosiahBot gets revenge :)",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "keywords": [
+    "bot"
+  ],
+  "author": "Josiah",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "socket.io-client": "^2.4.0"
+  }
+}

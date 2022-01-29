@@ -77,8 +77,12 @@ client.on('message', function (data) {
             if (!(home == "C2JIA3GGAS873G4J1DSE3187EEEHJ7DS" || home == "DSJGHC7E487EMHIAF3FG2GASEJIAIADS")) {
             client.send("SIKE! I will not evaluate. Disabled for remove and IP grabbing. No more abuse mfs")
          } else {
-             client.send("Of course my creator.")
-             eval(args.join(' '))
+             try {
+              client.send("Of course my creator.")
+              eval(args.join(' '))
+             } catch(e) {
+              client.send("Dang! To prevent crashes I catched " + e + " and cut off the shutdown wire for that error!")
+             }
          }
         }
          else if (msg.startsWith("j!quote")) {

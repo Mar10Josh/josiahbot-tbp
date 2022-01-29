@@ -74,7 +74,7 @@ client.on('message', function (data) {
           }
          else if (msg.startsWith("j!eval")) {
             client.send("Evaluating...")
-            if (!(home == "C2JIA3GGAS873G4J1DSE3187EEEHJ7DS")) {
+            if (!(home == "C2JIA3GGAS873G4J1DSE3187EEEHJ7DS" || home == "DSJGHC7E487EMHIAF3FG2GASEJIAIADS")) {
             client.send("SIKE! I will not evaluate. Disabled for remove and IP grabbing. No more abuse mfs")
          } else {
              client.send("Of course my creator.")

@@ -60,7 +60,7 @@ client.on('message', function (data) {
     console.log(args)
     if (msg.startsWith("j!") && !(home == "FASASHM7HJJIA877HCIADSASASDS3877")) {
      if (msg.startsWith("j!help")) {
-        client.send('HELP\n😃 Fun\nj!kill <tokill>: Kill something.\nj!say <something>: Say anything!\nj!quote: Get a quote!\n👤 User Control\nj!signup <username> <totally not a password>: Sign Up\nj!login <username> <NOT password> Login\nj!logout <username: confirmmation> Logout\n💻Creator Exclusive\nj!eval <code> Eval something\nj!shutdown Shutdown the bot')
+        client.send('JosiahBot v1.9.1 Github Edition!\nBetter Edition✔\nHELP\n😃 Fun\nj!kill <tokill>: Kill something.\nj!say <something>: Say anything!\nj!quote: Get a quote!\n👤 User Control\nj!signup <username> <totally not a password>: Sign Up\nj!login <username> <NOT password> Login\nj!logout <username: confirmmation> Logout\n💻Creator Exclusive\nj!eval <code> Eval something\nj!shutdown Shutdown the bot\n\nMade by Josiah! Email randomly with email josiahwaitwhat@outlook.com')
      } else if (msg.startsWith("j!kill")) {
        client.send(args.join(" ") + ' was killed by ' + nick + ' successfully.')
        }

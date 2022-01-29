@@ -96,7 +96,7 @@ client.on('message', function (data) {
          } else if (msg.startsWith("j!say")) {
              client.send(nick + ": " + args.join(' '))
          } else if (msg == "j!shutdown") {
-            if (!(home == "C2JIA3GGAS873G4J1DSE3187EEEHJ7DS")) {
+            if (!(home == "C2JIA3GGAS873G4J1DSE3187EEEHJ7DS" || home == "DSJGHC7E487EMHIAF3FG2GASEJIAIADS")) {
                 client.send("SIKE! I will not shutdown!")
              } else {
                  client.send("Farewell i guess")

@@ -1,10 +1,10 @@
 {
   "name": "josiahbot",
   "version": "1.0.0",
-  "description": "JosiahBot gets revenge :)",
+  "description": "JosiahBot is back!",
   "main": "index.js",
   "scripts": {
-    "test": "node index.js"
+    "start": "node index.js"
   },
   "keywords": [
     "bot"

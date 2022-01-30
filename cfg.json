@@ -1,5 +1,6 @@
 {
  "prefix": "r!",
  "color": "red",
- "name": "Randet"
+ "name": "Randet",
+ "spfx": "RD"
 }

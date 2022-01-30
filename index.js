@@ -34,13 +34,7 @@ const client = io('https://trollbox.party', {
     "path": "/api/v0/si"
 });
 
-const cfgr = fs.readFile('./cfg.json', 'utf8', (err, jsonString) => {
-    if (err) {
-        return '{}';
-    } else {
-        return jsonString;
-    }
-const cfg = JSON.parse(cfgr)
+const cfgr = require('./cfg.json')
 const pfx = cfg.prefix
 function error(message) {
     client.send("❌ Oops!\nSomething went wrong. " + message)

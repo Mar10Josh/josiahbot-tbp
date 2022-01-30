@@ -30,6 +30,7 @@ const quotes = [
   '"Thanks so much dude!" - Kevin - Spooky Month 4',
   '"trollbox is dead" - @e(admin)',
   '"Don\'t kick the god damn baby!" - A south park person i forgor 💀',
+  '"So not halal mode" - @baderalsafar on tt'
 ];
 
 // Prepeare Client

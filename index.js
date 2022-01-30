@@ -95,13 +95,15 @@ client.on('message', function (data) {
                }
            }
          } else if (msg.startsWith("j!say")) {
-             if (!(args.includes("-nn", args.length - 1))) {
-              client.send(nick + ": " + args.join(' '))
-             } else if (ownerhome.includes(home)) {
-                flag = args.pop()
-               client.send(args.join(' '))
-             } else if (!(ownerhome.includes(home))) {
-               client.send(nick + ": " + args.join(' '))
+             if (args.includes("-rn", args.length - 1)) {
+                 if (ownerhome.includes(home)) {
+                     args.pop()
+                     client.send(args.join(' '))
+                 } else {
+                     client.send(nick + ":" + args.join(' '))             
+                 }            
+             } else {
+                client.send(nick + ":" + args.join(' '))
              }
          } else if (msg == "j!shutdown") {
             if (!(ownerhome.includes(home))) {

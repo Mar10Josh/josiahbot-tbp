@@ -46,7 +46,7 @@ client.on("_connected", (data) => {
     client.emit('user joined', cfg.name + " [" + cfg.prefix + "]", cfg.color)
     console.log(client.id);
     setTimeout(() => {
-        client.emit('message', 'JosiahBot! v1.9.1');
+        client.emit('message', 'Randet! v1.9.1');
     }, 1000);
 });
 
@@ -119,8 +119,8 @@ client.on('message', function (data) {
          else {
           client.send('❌ Oops!\nSomething went wrong. I didn\'t understand that command! Is it in j!help?')
       }
-    } else if (msg.startsWith("JB-pfx")) {
-      client.send("What's up? Did you say \"JB-pfx\"because you don't have my prefix? My prefix is in my nickname, or: " + pfx + " right now!")
+    } else if (msg.startsWith(cfg.spfx + "-pfx")) {
+      client.send("What's up? Did you say" + cfg.spfx + "\"-pfx\"because you don't have my prefix? My prefix is in my nickname, or: " + pfx + " right now!")
     }
   })
 

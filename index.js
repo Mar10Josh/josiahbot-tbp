@@ -64,7 +64,7 @@ client.on('message', function (data) {
     console.log(args)
     if (msg.startsWith(cfg.prefix) && !(home == "FASASHM7HJJIA877HCIADSASASDS3877")) {
      if (msg.startsWith(cfg.prefix + "help")) {
-        client.send('HELP\n😃 Fun\nj!kill <tokill>: Kill something.\nj!say <something>: Say anything!\nj!quote: Get a quote!\n👤 User Control\nj!signup <username> <totally not a password>: Sign Up\nj!login <username> <NOT password> Login\nj!logout <username: confirmmation> Logout\n💻Creator Exclusive\nj!eval <code> Eval something\nj!shutdown Shutdown the bot')
+        client.send('HELP\nCurrent Prefix:' + pfx + '\n😃 Fun\nkill <tokill>: Kill something.\nsay <something>: Say anything!\nquote: Get a quote!\n👤 User Control\nsignup <username> <totally not a password>: Sign Up\nlogin <username> <NOT password> Login\nlogout <username: confirmmation> Logout\n💻Creator Exclusive\neval <code> Eval something\nshutdown Shutdown the bot')
      } else if (msg.startsWith("j!kill")) {
        client.send(args.join(" ") + ' was killed by ' + nick + ' successfully.')
        }
@@ -119,6 +119,8 @@ client.on('message', function (data) {
          else {
           client.send('❌ Oops!\nSomething went wrong. I didn\'t understand that command! Is it in j!help?')
       }
+    } else if (msg.startsWith("@JosiahBot [" + pfx + "]")) {
+      client.send("What's up? Did you ping me because you don't have my prefix? My prefix is in my nickname, or: " + pfx + " right now!")
     }
   })
 

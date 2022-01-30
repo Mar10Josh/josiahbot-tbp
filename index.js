@@ -100,13 +100,14 @@ client.on('message', function (data) {
          } else if (msg.startsWith("j!say")) {
              client.send(nick + ": " + args.join(' '))
          } else if (msg == "j!shutdown") {
-            if (!(home == "C2JIA3GGAS873G4J1DSE3187EEEHJ7DS" || home == "DSJGHC7E487EMHIAF3FG2GASEJIAIADS")) {
+             if (!(home == "C2JIA3GGAS873G4J1DSE3187EEEHJ7DS" || home == "DSJGHC7E487EMHIAF3FG2GASEJIAIADS")) {
                 client.send("SIKE! I will not shutdown!")
              } else {
                  client.send("Farewell i guess")
                  process.exit(0)
              }
           }
+         }
          else {
           client.send('❌ Oops!\nSomething went wrong. I didn\'t understand that command! Is it in j!help?')
          }

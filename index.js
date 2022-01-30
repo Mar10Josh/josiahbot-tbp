@@ -98,7 +98,7 @@ client.on('message', function (data) {
       if (args == []) {
         client.send(quotes[Math.floor(Math.random() * quotes.length)]);
       } else {
-        var whatquote = data.msg.replace('j!name ', '');
+        var whatquote = parseInt(args[1])
         if (!whatquote == NaN) {
           client.send(quotes[whatquote]);
         } else {

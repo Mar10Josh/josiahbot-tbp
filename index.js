@@ -43,7 +43,7 @@ function error(message) {
 
 // Prepare bot
 client.on("_connected", (data) => {
-    client.emit('user joined', "JosiahBot [" + cfg.prefix + "]", cfg.color)
+    client.emit('user joined', cfg.name + " [" + cfg.prefix + "]", cfg.color)
     console.log(client.id);
     setTimeout(() => {
         client.emit('message', 'JosiahBot! v1.9.1');

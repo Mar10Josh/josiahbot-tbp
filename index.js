@@ -107,7 +107,6 @@ client.on('message', function (data) {
                  process.exit(0)
              }
           }
-         }
          else {
           client.send('❌ Oops!\nSomething went wrong. I didn\'t understand that command! Is it in j!help?')
          }

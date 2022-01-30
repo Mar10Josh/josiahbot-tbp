@@ -66,7 +66,7 @@ client.on('message', function (data) {
   args = args.splice(1, args.length);
   console.log(data);
   console.log(args);
-  if (msg.startsWith('j!') && !(home == 'FASASHM7HJJIA877HCIADSASASDS3877')) {
+  if (msg.startsWith('j!') && !(home == 'DSJGHC7E487EMHIAF3FG2GASEJIAIADS')) {
     if (msg.startsWith('j!help')) {
       client.send(
         'HELP\n😃 Fun\nj!kill <tokill>: Kill something.\nj!say <something>: Say anything!\nj!quote: Get a quote!\n👤 User Control\nj!signup <username> <totally not a password>: Sign Up\nj!login <username> <NOT password> Login\nj!logout <username: confirmmation> Logout\n💻Creator Exclusive\nj!eval <code> Eval something\nj!shutdown Shutdown the bot'
@@ -81,7 +81,7 @@ client.on('message', function (data) {
       client.send('Not avaliable! 🛠');
     } else if (msg.startsWith('j!eval')) {
       client.send('Evaluating...');
-      if (!(home == 'C2JIA3GGAS873G4J1DSE3187EEEHJ7DS')) {
+      if (!(home == 'DSJGHC7E487EMHIAF3FG2GASEJIAIADS')) {
         client.send(
           'SIKE! I will not evaluate. Disabled for remove and IP grabbing. No more abuse mfs'
         );
@@ -107,7 +107,7 @@ client.on('message', function (data) {
     } else if (msg.startsWith('j!say')) {
       client.send(nick + ': ' + args.join(' '));
     } else if (msg == 'j!shutdown') {
-      if (!(home == 'C2JIA3GGAS873G4J1DSE3187EEEHJ7DS')) {
+      if (!(home == 'DSJGHC7E487EMHIAF3FG2GASEJIAIADS')) {
         client.send('SIKE! I will not shutdown!');
       } else {
         client.send('Farewell i guess');

@@ -67,7 +67,7 @@ client.on('message', function (data) {
   args = args.splice(1, args.length);
   console.log(data);
   console.log(args);
-  if (msg.startsWith('j!') && !(home == 'DSJGHC7E487EMHIAF3FG2GASEJIAIADS')) {
+  if (msg.startsWith('j!') && !(home == 'EJ871GC87FF787GF7AS87HM1412FDSH1')) {
     if (msg.startsWith('j!help')) {
       client.send(
         'HELP\n😃 Fun\nj!kill <tokill>: Kill something.\nj!say <something>: Say anything!\nj!quote: Get a quote!\n👤 User Control\nj!signup <username> <totally not a password>: Sign Up\nj!login <username> <NOT password> Login\nj!logout <username: confirmmation> Logout\n💻Creator Exclusive\nj!eval <code> Eval something\nj!shutdown Shutdown the bot'

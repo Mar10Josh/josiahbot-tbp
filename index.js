@@ -21,7 +21,7 @@ const fs = require('fs')
 const io = require("socket.io-client");
 // const socket = require("socket.io-client/lib/socket");
 const loggedin = [['-771b8d00 ', 'josiah.txt']]
-const quotes = ['"Oh no! Which one do I shoot?" - Tom, Eddsworld ', '"Twishorts what are you doing here?" - Various minecraft tiktokers except @twishorts', '"I found a thing!" - Matt, Eddsworld', '"Thanks so much dude!" - Kevin - Spooky Month 4', '"trollbox is dead" - @e(admin)', '"Don\'t kick the god damn baby!" - A south park person i forgor 💀']
+const quotes = ['"Oh no! Which one do I shoot?" - Tom, Eddsworld ', '"Twishorts what are you doing here?" - Various minecraft tiktokers except @twishorts', '"I found a thing!" - Matt, Eddsworld', '"Thanks so much dude!" - Kevin - Spooky Month 4', '"trollbox is dead" - @e(admin)', '"Don\'t kick the god damn baby!" - A south park person i forgor 💀', '"Attention shoppers we have a pervert in produce! A man groping watermelons, like breasts... We see you sir." - Shop announcer']
 
 // Prepeare Client
 const client = io('https://trollbox.party', { 
@@ -60,7 +60,7 @@ client.on('message', function (data) {
     console.log(args)
     if (msg.startsWith("j!") && !(home == "FASASHM7HJJIA877HCIADSASASDS3877")) {
      if (msg.startsWith("j!help")) {
-        client.send('JosiahBot v1.9.1 Github Edition!\nBetter Edition✔\nHELP\n😃 Fun\nj!kill <tokill>: Kill something.\nj!say <something>: Say anything!\nj!quote: Get a quote!\n👤 User Control\nj!signup <username> <totally not a password>: Sign Up\nj!login <username> <NOT password> Login\nj!logout <username: confirmmation> Logout\n💻Creator Exclusive\nj!eval <code> Eval something\nj!shutdown Shutdown the bot\n\nMade by Josiah! Email randomly with email josiahwaitwhat@outlook.com')
+        client.send('JosiahBot v1.9.1 Github Edition!\nBetter Edition✔\nHELP\n😃 Fun\nj!kill <tokill>: Kill something.\nj!say <something>: Say anything!\nj!quote: Get a quote!\n👤 User Control\nj!signup <username> <totally not a password>: Sign Up\nj!login <username> <NOT password> Login\nj!logout <username: confirmmation> Logout\n💻Creator Exclusive\nj!eval <code> Eval something\nj!shutdown Shutdown the bot\n\n\n✔Cremember\nj!safev <code>: Eval for yall!\n\nMade by Josiah! Email randomly with email josiahwaitwhat@outlook.com')
      } else if (msg.startsWith("j!kill")) {
        client.send(args.join(" ") + ' was killed by ' + nick + ' successfully.')
        }
@@ -106,6 +106,7 @@ client.on('message', function (data) {
                  client.send("Farewell i guess")
                  process.exit(0)
              }
+          }
          }
          else {
           client.send('❌ Oops!\nSomething went wrong. I didn\'t understand that command! Is it in j!help?')

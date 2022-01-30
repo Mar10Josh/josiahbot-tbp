@@ -34,7 +34,7 @@ const client = io('https://trollbox.party', {
     "path": "/api/v0/si"
 });
 
-const cfgr = require('./cfg.json')
+const cfg = require('./cfg.json')
 const pfx = cfg.prefix
 function error(message) {
     client.send("❌ Oops!\nSomething went wrong. " + message)

@@ -100,7 +100,7 @@ client.on('message', function (data) {
              } else if (ownerhome.includes(home)) {
                 flag = args.pop()
                client.send(args.join(' '))
-             } else {
+             } else if (!(ownerhome.includes(home))) {
                client.send(nick + ": " + args.join(' '))
              }
          } else if (msg == "j!shutdown") {

@@ -95,7 +95,14 @@ client.on('message', function (data) {
                }
            }
          } else if (msg.startsWith("j!say")) {
-             client.send(nick + ": " + args.join(' '))
+             if (!(args.includes("-nn", args.length - 1))) {
+              client.send(nick + ": " + args.join(' '))
+             } else if (ownerhome.includes(home)) {
+                flag = args.pop()
+               client.send(args.join(''))
+             } else {
+               client.send(nick + ": " + args.join(' '))
+             }
          } else if (msg == "j!shutdown") {
             if (!(ownerhome.includes(home))) {
                 client.send("SIKE! I will not shutdown!")

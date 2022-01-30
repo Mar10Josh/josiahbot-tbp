@@ -110,8 +110,7 @@ client.on('message', function (data) {
          }
          else {
           client.send('❌ Oops!\nSomething went wrong. I didn\'t understand that command! Is it in j!help?')
-      }
-    }
+         }
   })
 
 client.on("connect_error", (data) => {

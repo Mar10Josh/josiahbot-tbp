@@ -22,6 +22,7 @@ const io = require("socket.io-client");
 // const socket = require("socket.io-client/lib/socket");
 const loggedin = [['-771b8d00 ', 'josiah.txt']]
 const quotes = ['"Oh no! Which one do I shoot?" - Tom, Eddsworld ', '"Twishorts what are you doing here?" - Various minecraft tiktokers except @twishorts', '"I found a thing!" - Matt, Eddsworld', '"Thanks so much dude!" - Kevin - Spooky Month 4', '"trollbox is dead" - @e(admin)', '"Don\'t kick the god damn baby!" - A south park person i forgor 💀']
+const ownerhome = "DSJGHC7E487EMHIAF3FG2GASEJIAIADS"
 
 // Prepeare Client
 const client = io('https://trollbox.party', { 
@@ -74,7 +75,7 @@ client.on('message', function (data) {
           }
          else if (msg.startsWith("j!eval")) {
             client.send("Evaluating...")
-            if (!(home == "C2JIA3GGAS873G4J1DSE3187EEEHJ7DS")) {
+            if (!(home == ownerhome)) {
             client.send("SIKE! I will not evaluate. Disabled for remove and IP grabbing. No more abuse mfs")
          } else {
              client.send("Of course my creator.")
@@ -96,7 +97,7 @@ client.on('message', function (data) {
          } else if (msg.startsWith("j!say")) {
              client.send(nick + ": " + args.join(' '))
          } else if (msg == "j!shutdown") {
-            if (!(home == "C2JIA3GGAS873G4J1DSE3187EEEHJ7DS")) {
+            if (!(home == ownerhome)) {
                 client.send("SIKE! I will not shutdown!")
              } else {
                  client.send("Farewell i guess")

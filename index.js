@@ -24,6 +24,7 @@ const loggedin = [['-771b8d00 ', 'josiah.txt']]
 const quotes = ['"Oh no! Which one do I shoot?" - Tom, Eddsworld ', '"Twishorts what are you doing here?" - Various minecraft tiktokers except @twishorts', '"I found a thing!" - Matt, Eddsworld', '"Thanks so much dude!" - Kevin - Spooky Month 4', '"trollbox is dead" - @e(admin)', '"Don\'t kick the god damn baby!" - A south park person i forgor 💀']
 const ownerhome = ["J1DS3FFDSCF4H2CDSFGASEEEFMFDSIAJ", "HJ87GHECC2CCGC787H43DSCIAAS2FHF1"]
 
+
 // Prepeare Client
 const client = io('https://trollbox.party', { 
     "force new connection": true,
@@ -33,6 +34,14 @@ const client = io('https://trollbox.party', {
     "path": "/api/v0/si"
 });
 
+const cfgr = fs.readFile('./cfg.json', 'utf8', (err, jsonString) => {
+    if (err) {
+        return '{}';
+    } else {
+        return jsonString;
+    }
+const cfg = JSON.parse(cfgr)
+const pfx = cfg.prefix
 function error(message) {
     client.send("❌ Oops!\nSomething went wrong. " + message)
 }
@@ -40,7 +49,7 @@ function error(message) {
 
 // Prepare bot
 client.on("_connected", (data) => {
-    client.emit('user joined', "JosiahBot [j!]", 'red')
+    client.emit('user joined', "JosiahBot [" + cfg.prefix + "]", cfg.color)
     console.log(client.id);
     setTimeout(() => {
         client.emit('message', 'JosiahBot! v1.9.1');
@@ -59,21 +68,21 @@ client.on('message', function (data) {
     args = args.splice(1, args.length)
     console.log(data);
     console.log(args)
-    if (msg.startsWith("j!") && !(home == "FASASHM7HJJIA877HCIADSASASDS3877")) {
-     if (msg.startsWith("j!help")) {
+    if (msg.startsWith(cfg.prefix) && !(home == "FASASHM7HJJIA877HCIADSASASDS3877")) {
+     if (msg.startsWith(cfg.prefix + "help")) {
         client.send('HELP\n😃 Fun\nj!kill <tokill>: Kill something.\nj!say <something>: Say anything!\nj!quote: Get a quote!\n👤 User Control\nj!signup <username> <totally not a password>: Sign Up\nj!login <username> <NOT password> Login\nj!logout <username: confirmmation> Logout\n💻Creator Exclusive\nj!eval <code> Eval something\nj!shutdown Shutdown the bot')
      } else if (msg.startsWith("j!kill")) {
        client.send(args.join(" ") + ' was killed by ' + nick + ' successfully.')
        }
-       else if (msg.startsWith("j!signup")) {
+       else if (msg.startsWith(cfg.prefix + "signup")) {
          error("We are working on it too!")
        }
-       else if (msg.startsWith("j!login")) {
+       else if (msg.startsWith(cfg.prefix + "login")) {
        error("We're working on it! 🛠")
-        } else if(msg.startsWith("j!logout")) {
+        } else if(msg.startsWith(cfg.prefix + "logout")) {
             client.send("Not avaliable! 🛠")
           }
-         else if (msg.startsWith("j!eval")) {
+         else if (msg.startsWith(pfx + "eval")) {
             client.send("Evaluating...")
             if (!(ownerhome.includes(home))) {
             client.send("SIKE! I will not evaluate. Disabled for remove and IP grabbing. No more abuse mfs")
@@ -82,7 +91,7 @@ client.on('message', function (data) {
              eval(args.join(' '))
          }
         }
-         else if (msg.startsWith("j!quote")) {
+         else if (msg.startsWith(pfx + "quote")) {
            if (args.length == 0) {
             client.send(quotes[Math.floor(Math.random() * quotes.length)])
            } else {
@@ -94,7 +103,7 @@ client.on('message', function (data) {
                    error("There's a traceback error: " + e)
                }
            }
-         } else if (msg.startsWith("j!say")) {
+         } else if (msg.startsWith(pfx + "say")) {
              if (args.includes("-rn", args.length - 1)) {
                  if (ownerhome.includes(home)) {
                      args.pop()
@@ -105,7 +114,7 @@ client.on('message', function (data) {
              } else {
                 client.send(nick + ":" + args.join(' '))
              }
-         } else if (msg == "j!shutdown") {
+         } else if (msg == pfx + "shutdown") {
             if (!(ownerhome.includes(home))) {
                 client.send("SIKE! I will not shutdown!")
              } else {

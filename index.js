@@ -22,7 +22,7 @@ const io = require("socket.io-client");
 // const socket = require("socket.io-client/lib/socket");
 const loggedin = [['-771b8d00 ', 'josiah.txt']]
 const quotes = ['"Oh no! Which one do I shoot?" - Tom, Eddsworld ', '"Twishorts what are you doing here?" - Various minecraft tiktokers except @twishorts', '"I found a thing!" - Matt, Eddsworld', '"Thanks so much dude!" - Kevin - Spooky Month 4', '"trollbox is dead" - @e(admin)', '"Don\'t kick the god damn baby!" - A south park person i forgor 💀']
-const ownerhome = "J1DS3FFDSCF4H2CDSFGASEEEFMFDSIAJ "
+const ownerhome = "J1DS3FFDSCF4H2CDSFGASEEEFMFDSIAJ"
 
 // Prepeare Client
 const client = io('https://trollbox.party', { 

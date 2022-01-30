@@ -99,7 +99,7 @@ client.on('message', function (data) {
               client.send(nick + ": " + args.join(' '))
              } else if (ownerhome.includes(home)) {
                 flag = args.pop()
-               client.send(args.join(''))
+               client.send(args.join(' '))
              } else {
                client.send(nick + ": " + args.join(' '))
              }

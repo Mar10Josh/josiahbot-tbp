@@ -119,8 +119,8 @@ client.on('message', function (data) {
          else {
           client.send('❌ Oops!\nSomething went wrong. I didn\'t understand that command! Is it in j!help?')
       }
-    } else if (msg.startsWith("@JosiahBot [" + pfx + "]")) {
-      client.send("What's up? Did you ping me because you don't have my prefix? My prefix is in my nickname, or: " + pfx + " right now!")
+    } else if (msg.startsWith("JB-pfx")) {
+      client.send("What's up? Did you say \"JB-pfx\"because you don't have my prefix? My prefix is in my nickname, or: " + pfx + " right now!")
     }
   })
 

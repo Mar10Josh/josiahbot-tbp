@@ -19,6 +19,7 @@ function decodeEntities(encodedString) {
 }
 const fs = require('fs')
 const io = require("socket.io-client");
+const utjs = require('./uptime.js')
 // const socket = require("socket.io-client/lib/socket");
 const loggedin = [['-771b8d00 ', 'josiah.txt']]
 const quotes = ['"Oh no! Which one do I shoot?" - Tom, Eddsworld ', '"Twishorts what are you doing here?" - Various minecraft tiktokers except @twishorts', '"I found a thing!" - Matt, Eddsworld', '"Thanks so much dude!" - Kevin - Spooky Month 4', '"trollbox is dead" - @e(admin)', '"Don\'t kick the god damn baby!" - A south park person i forgor 💀']
@@ -48,6 +49,7 @@ client.on("_connected", (data) => {
     setTimeout(() => {
         client.emit('message', cfg.name + '! v1.9.1');
     }, 1000);
+    utjs.countut()
 });
 
 client.on('user joined', function (data) {
@@ -115,6 +117,8 @@ client.on('message', function (data) {
                  client.send("Farewell i guess")
                  process.exit(0)
              }
+         } else if (msg == "j!uptime") {
+           client.send("Seconds: " + toString(utjs.ut))
          }
          else {
           client.send('❌ Oops!\nSomething went wrong. I didn\'t understand that command! Is it in j!help?')

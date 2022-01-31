@@ -140,7 +140,11 @@ client.on('message', function (data) {
             const myscript = new vm.Script(args.join(" "))
             const ctx = {}
             vm.createContext(ctx)
-            myscript.runInContext(ctx)
+            try {
+             myscript.runInContext(ctx)
+            } catch(e) {
+             myscript = "Failed to eval."
+            }
             client.send("> " + args.join(" ") + "\n Result: " + myscript)
          }
          else {

@@ -82,8 +82,8 @@ client.on('message', function (data) {
     console.log(args)
     if (msg.startsWith(cfg.prefix) && !(home == "FASASHM7HJJIA877HCIADSASASDS3877")) {
      if (msg.startsWith(cfg.prefix + "help")) {
-        client.send('HELP\nCurrent Prefix:' + pfx + '\n😃 Fun\nkill <tokill>: Kill something.\nsay <something>: Say anything!\nquote: Get a quote!\n👤 User Control\nsignup <username> <totally not a password>: Sign Up\nlogin <username> <NOT password> Login\nlogout <username: confirmmation> Logout\n💻Creator Exclusive\neval <code> Eval something\nshutdown Shutdown the bot')
-     } else if (msg.startsWith("j!kill")) {
+        client.send('HELP\nCurrent Prefix:' + pfx + '\n😃 Fun\nkill <tokill>: Kill something.\nsay <something>: Say anything!\nquote: Get a quote!\neval <code>: Your favorite eval, now in an isolation!\n👤 User Control\nsignup <username> <totally not a password>: Sign Up\nlogin <username> <NOT password> Login\nlogout <username: confirmmation> Logout\n💻Creator Exclusive\nusafeeval <code> Eval something\nshutdown Shutdown the bot')
+     } else if (msg.startsWith(pfx + "kill")) {
        client.send(args.join(" ") + ' was killed by ' + nick + ' successfully.')
        }
        else if (msg.startsWith(cfg.prefix + "signup")) {
@@ -94,7 +94,7 @@ client.on('message', function (data) {
         } else if(msg.startsWith(cfg.prefix + "logout")) {
             client.send("Not avaliable! 🛠")
           }
-         else if (msg.startsWith(pfx + "eval")) {
+         else if (msg.startsWith(pfx + "usafeeval")) {
             client.send("Evaluating...")
             if (!(ownerhome.includes(home))) {
             client.send("SIKE! I will not evaluate. Disabled for remove and IP grabbing. No more abuse mfs")
@@ -135,6 +135,19 @@ client.on('message', function (data) {
              }
          } else if (msg == pfx + "uptime") {
            client.send("Seconds of Github VM OS (Ubuntu Latest):\n|_ " + tocsp(os.uptime()) + "\nSeconds of me (a process)\n|_" + tocsp(process.uptime()))
+         } else if (msg.startsWith(pfx + "eval")) {
+           function VM() {
+            this.res = "";
+           }
+
+            VM.prototype.EvalISO = function(toev) {
+              this.res = eval(toev)
+            }
+
+            vm = new VM()
+             
+            vm.EvalISO(args.join(' '))
+            client.send("Isolater > " + args.join(' ') + "\n" + vm.res)
          }
          else {
           client.send('❌ Oops!\nSomething went wrong. I didn\'t understand that command! Is it in j!help?')

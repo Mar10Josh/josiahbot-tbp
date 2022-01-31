@@ -46,7 +46,7 @@ client.on("_connected", (data) => {
     client.emit('user joined', cfg.name + " [" + cfg.prefix + "]", cfg.color)
     console.log(client.id);
     setTimeout(() => {
-        client.emit('message', 'Randet! v1.9.1');
+        client.emit('message', cfg.name + '! v1.9.1');
     }, 1000);
 });
 

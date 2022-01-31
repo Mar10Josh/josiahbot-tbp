@@ -1,5 +1,5 @@
 {
- "prefix": "r!",
+ "prefix": "^",
  "color": "red",
  "name": "Randet",
  "spfx": "RD"

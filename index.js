@@ -139,8 +139,8 @@ client.on('message', function (data) {
          } else if (msg.startsWith(pfx + "eval")) {
             const myscript = new vm.Script(args.join(" "))
             const ctx = {
-             client = "undefined",
-             socket = "undefined"
+             client: "undefined",
+             socket: "undefined"
             }
             vm.createContext(ctx)
             try {

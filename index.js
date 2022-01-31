@@ -17,6 +17,22 @@ function decodeEntities(encodedString) {
         return String.fromCharCode(num);
     });
 }
+function tocsp(sec) {
+ var d = ~~(sec / 86400);
+ var h = ~~(sec / 3600) % 24;
+ var m = ~~(sec / 60) % 60;
+ var s = ~~(sec % 60);
+ var res = lz(s) + "";
+ res = lz(m) + ":" + res;
+ if (h) {
+  res = lz(h) + ":" + res;
+  if (d) {
+   res = d + "d " + res;
+  }
+ }
+ return res;
+}
+const os = require("os")
 const fs = require('fs')
 const io = require("socket.io-client");
 const upjs = require('./uptime.js')
@@ -118,7 +134,7 @@ client.on('message', function (data) {
                  process.exit(0)
              }
          } else if (msg == "j!uptime") {
-           client.send("Seconds: " + toString(utjs.ut))
+           client.send("Seconds: " + tocsp(os.uptime))
          }
          else {
           client.send('❌ Oops!\nSomething went wrong. I didn\'t understand that command! Is it in j!help?')

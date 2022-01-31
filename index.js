@@ -36,6 +36,7 @@ function tocsp(sec) {
 const os = require("os")
 const fs = require('fs')
 const io = require("socket.io-client");
+const vm = require("vm")
 
 // const socket = require("socket.io-client/lib/socket");
 const loggedin = [['-771b8d00 ', 'josiah.txt']]
@@ -136,21 +137,14 @@ client.on('message', function (data) {
          } else if (msg == pfx + "uptime") {
            client.send("Seconds of Github VM OS (Ubuntu Latest):\n|_ " + tocsp(os.uptime()) + "\nSeconds of me (a process)\n|_" + tocsp(process.uptime()))
          } else if (msg.startsWith(pfx + "eval")) {
-           function VM() {
-            this.res = "";
-           }
-
-            VM.prototype.EvalISO = function(toev) {
-              this.res = eval(toev)
-            }
-
-            vm = new VM()
-             
-            vm.EvalISO(args.join(' '))
-            client.send("Isolater > " + args.join(' ') + "\n" + vm.res)
+            const myscript = new vm.Script(args.join(" "))
+            const ctx = {}
+            vm.createContext(ctx)
+            myscript.runInContext(ctx)
+            client.send("> " + args.join(" ") + "\n Result: " + myscript)
          }
          else {
-          client.send('❌ Oops!\nSomething went wrong. I didn\'t understand that command! Is it in j!help?')
+          client.send('❌ Oops!\nSomething went wrong. I didn\'t understand that command! Is it in help?')
       }
     } else if (msg.startsWith(cfg.spfx + "-pfx")) {
       client.send("What's up? Did you say\"" + cfg.spfx + "-pfx\"because you don't have my prefix? My prefix is in my nickname, or: " + pfx + " right now!")

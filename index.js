@@ -17,6 +17,7 @@ function decodeEntities(encodedString) {
         return String.fromCharCode(num);
     });
 }
+function lz(m, t = 2, x = "0") { x = x.repeat(t); return (x + m).slice(-t) }
 function tocsp(sec) {
  var d = ~~(sec / 86400);
  var h = ~~(sec / 3600) % 24;

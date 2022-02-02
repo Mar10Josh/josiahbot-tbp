@@ -69,6 +69,7 @@ client.on("_connected", (data) => {
     }, 1000);
 });
 
+try {
 client.on('user joined', function (data) {
     console.log(data);
 });
@@ -157,7 +158,9 @@ client.on('message', function (data) {
       client.send("What's up? Did you say\"" + cfg.spfx + "-pfx\"because you don't have my prefix? My prefix is in my nickname, or: " + pfx + " right now!")
     }
   })
-
+} catch(e) {
+  client.send("Alkep - Keeping Bots Alive\n\nError detected by Alkep.\n copyright 2022-now by josiah ©")
+}
 client.on("connect_error", (data) => {
     console.log('error');
     console.log(data);

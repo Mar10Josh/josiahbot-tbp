@@ -139,11 +139,8 @@ client.on('message', function (data) {
            client.send("Seconds of Github VM OS (Ubuntu Latest):\n|_ " + tocsp(os.uptime()) + "\nSeconds of me (a process)\n|_" + tocsp(process.uptime()))
          } else if (msg.startsWith(pfx + "eval")) {
             var myscript = new vm.Script(args.join(" "))
-            const ctx = {
-             client: "undefined",
-             socket: "undefined"
-            }
-            vm.createContext(ctx)
+            var nullctx = vm.createContext(Object.create(null));
+            vm.createContext(nullctx)
             try {
              myscript.runInContext(ctx)
             } catch(e) {

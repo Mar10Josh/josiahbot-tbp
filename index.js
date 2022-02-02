@@ -35,7 +35,7 @@ function tocsp(sec) {
 }
 const os = require("os")
 const fs = require('fs')
-const io = require("socket.io-client");
+const io = require('tbparty');
 const vm = require("vm")
 
 // const socket = require("socket.io-client/lib/socket");
@@ -45,13 +45,7 @@ const ownerhome = ["J1DS3FFDSCF4H2CDSFGASEEEFMFDSIAJ", "HJ87GHECC2CCGC787H43DSCI
 
 
 // Prepeare Client
-const client = io('https://trollbox.party', { 
-    "force new connection": true,
-    "reconnectionAttempts": "Infinity",
-    "timeout": 10000,
-    "transports": ["websocket"],
-    "path": "/api/v0/si"
-});
+const client = io();
 
 const cfg = require('./cfg.json')
 const pfx = cfg.prefix
@@ -105,17 +99,12 @@ client.on('message', function (data) {
          }
         }
          else if (msg.startsWith(pfx + "quote")) {
-           if (args.length == 0) {
-            client.send(quotes[Math.floor(Math.random() * quotes.length)])
-           } else {
-               var whatquote = parseInt(args[0])
-               console.log(whatquote)
-               try {
-                client.send(quotes[whatquote])
-               } catch(e) {
-                   error("There's a traceback error: " + e)
-               }
-           }
+          var args = msg.replace('j!name ', '');
+          if (args == '') {
+          client.send(quotes[Math.floor(Math.random() * quotes.length)]);
+          } else {
+              client.send(quotes[whatquote]);
+          }
          } else if (msg.startsWith(pfx + "say")) {
              if (args.includes("-rn", args.length - 1)) {
                  if (ownerhome.includes(home)) {

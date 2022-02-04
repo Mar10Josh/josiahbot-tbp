@@ -142,11 +142,11 @@ client.on('message', function (data) {
             var nullctx = vm.createContext(Object.create(null));
             vm.createContext(nullctx)
             try {
-             myscript.runInContext(ctx)
+             var q = myscript.runInContext(ctx)
             } catch(e) {
-             myscript = "Failed to eval."
+             myscript = "Failed to eval. Error: " + e
             }
-            client.send("> " + args.join(" ") + "\n Result: " + myscript)
+            client.send("> " + args.join(" ") + "\n Result: " + q)
          }
          else {
           client.send('❌ Oops!\nSomething went wrong. I didn\'t understand that command! Is it in help?')

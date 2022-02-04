@@ -144,7 +144,7 @@ client.on('message', function (data) {
             try {
              var q = myscript.runInContext(ctx)
             } catch(e) {
-             myscript = "Failed to eval. Error: " + e
+             var q = "Failed to eval. Error: " + e
             }
             client.send("> " + args.join(" ") + "\n Result: " + q)
          }
